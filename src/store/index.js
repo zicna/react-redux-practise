@@ -1,23 +1,26 @@
-import {createStore} from 'redux'
+import { createStore } from 'redux'
 
 const ACTION = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
+  TOGGLE: 'TOGGLE',
 }
 
-const defaultStore = {
-  counter: 0
+const defaultState = {
+  counter: 0,
+  hideCounter: false,
 }
 
-const reducerCounter = (store = defaultStore, action) => {
+const reducerCounter = (store = defaultState, action) => {
   switch (action.type) {
     case ACTION.DECREMENT:
-      return {
-        counter: store.counter - action.amount,
-      }
+      return { ...store, counter: store.counter - action.amount }
     case ACTION.INCREMENT:
+      return { ...store, counter: store.counter + action.amount }
+    case ACTION.TOGGLE:
       return {
-        counter: store.counter + action.amount,
+        ...store,
+        hideCounter: !store.hideCounter,
       }
     default:
       return store
