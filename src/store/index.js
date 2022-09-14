@@ -6,18 +6,18 @@ const ACTION = {
 }
 
 const defaultStore = {
-  counter: 0,
+  counter: 0
 }
 
 const reducerCounter = (store = defaultStore, action) => {
   switch (action.type) {
     case ACTION.DECREMENT:
       return {
-        counter: defaultStore.counter - 1,
+        counter: store.counter - action.amount,
       }
     case ACTION.INCREMENT:
       return {
-        counter: defaultStore.counter + 1,
+        counter: store.counter + action.amount,
       }
     default:
       return store
