@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 
-const ACTION = {
+export const ACTION = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
   TOGGLE: 'TOGGLE',

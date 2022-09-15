@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
+import {ACTION} from '../store/index'
+
 const CounterComponent = (props) => {
   const [increment, setIncrement] = useState(1)
   const counter = useSelector((state) => {
@@ -13,10 +15,10 @@ const CounterComponent = (props) => {
   const dispatch = useDispatch()
 
   const incrementHandler = () => {
-    dispatch({ type: 'INCREMENT', amount: 1 })
+    dispatch({ type: ACTION.INCREMENT, amount: 1 })
   }
   const decrementHandler = () => {
-    dispatch({ type: 'DECREMENT', amount: 1 })
+    dispatch({ type: ACTION.DECREMENT, amount: 1 })
   }
 
   const incrementChangeHandler = (event) => {
@@ -24,7 +26,7 @@ const CounterComponent = (props) => {
   }
 
   const incrementByHandler = () => {
-    dispatch({ type: 'INCREMENT', amount: parseInt(increment) })
+    dispatch({ type: ACTION.INCREMENT, amount: parseInt(increment) })
   }
 
   const toggleCounterHandler = () => {
